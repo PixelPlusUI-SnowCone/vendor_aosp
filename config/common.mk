@@ -146,6 +146,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     NavigationBarNoHintOverlay
 
+# Disable async MTE on system_server
+PRODUCT_SYSTEM_EXT_PROPERTIES += \
+    arm64.memtag.process.system_server=off
+
 # Dex preopt
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI \
