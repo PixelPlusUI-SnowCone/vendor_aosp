@@ -121,8 +121,8 @@ PRODUCT_PACKAGES += \
     FontStoropiaSourceOverlay \
     FontSurferSourceOverlay \
     FontUbuntuSourceOverlay \
-	 FontOppoSansOverlay
-
+    FontOppoSansOverlay \
+    FontNothiingDotOverlay
 
 PRODUCT_COPY_FILES += \
     vendor/aosp/fonts/fonts_customization.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/fonts_customization.xml
