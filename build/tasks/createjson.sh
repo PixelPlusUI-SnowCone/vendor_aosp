@@ -28,14 +28,13 @@ if [ -f $existingOTAjson ]; then
 	#get data from already existing device json
 	#there might be a better way to parse json yet here we try without adding more dependencies like jq
 	maintainer=`grep -n "\"maintainer\"" $existingOTAjson | cut -d ":" -f 3 | sed 's/"//g' | sed 's/,//g' | xargs`
-	oem=`grep -n "\"oem\"" $existingOTAjson | cut -d ":" -f 3 | sed 's/"//g' | sed 's/,//g' | xargs`
 	device=`grep -n "\"device\"" $existingOTAjson | cut -d ":" -f 3 | sed 's/"//g' | sed 's/,//g' | xargs`
 	filename=$3
 	version=`echo "$4" | cut -d'-' -f5`
 	v_max=`echo "$version" | cut -d'.' -f1 | cut -d'v' -f2`
 	v_min=`echo "$version" | cut -d'.' -f2`
 	version=$4
-	download="https://download.ppui.site/eleven/$1/$3"
+	download="https://download.ppui.site/twelve/$1/$3"
 	buildprop=$2/system/build.prop
 	linenr=`grep -n "ro.system.build.date.utc" $buildprop | cut -d':' -f1`
 	timestamp=`sed -n $linenr'p' < $buildprop | cut -d'=' -f2`
@@ -51,14 +50,6 @@ if [ -f $existingOTAjson ]; then
 	if [ ! -z "$firmware" ]; then
 		firmware="https:"$firmware
 	fi
-	modem=`grep -n "\"modem\"" $existingOTAjson | cut -d ":" -f 4 | sed 's/"//g' | sed 's/,//g' | xargs`
-	if [ ! -z "$modem" ]; then
-		modem="https:"$modem
-	fi
-	bootloader=`grep -n "\"bootloader\"" $existingOTAjson | cut -d ":" -f 4 | sed 's/"//g' | sed 's/,//g' | xargs`
-	if [ ! -z "$bootloader" ]; then
-		bootloader="https:"$bootloader
-	fi
 	recovery=`grep -n "\"recovery\"" $existingOTAjson | cut -d ":" -f 4 | sed 's/"//g' | sed 's/,//g' | xargs`
 	if [ ! -z "$recovery" ]; then
 		recovery="https:"$recovery
@@ -71,24 +62,11 @@ if [ -f $existingOTAjson ]; then
 	if [ ! -z "$telegram" ]; then
 		telegram="https:"$telegram
 	fi
-	dt=`grep -n "\"dt\"" $existingOTAjson | cut -d ":" -f 4 | sed 's/"//g' | sed 's/,//g' | xargs`
-	if [ ! -z "$dt" ]; then
-		dt="https:"$dt
-	fi
-	common=`grep -n "\"common-dt\"" $existingOTAjson | cut -d ":" -f 4 | sed 's/"//g' | sed 's/,//g' | xargs`
-	if [ ! -z "$common" ]; then
-		common="https:"$common
-	fi
-	kernel=`grep -n "\"kernel\"" $existingOTAjson | cut -d ":" -f 4 | sed 's/"//g' | sed 's/,//g' | xargs`
-	if [ ! -z "$kernel" ]; then
-		kernel="https:"$kernel
-	fi
 
 	echo '{
 	"response": [
 		{
 			"maintainer": "'$maintainer'",
-			"oem": "'$oem'",
 			"device": "'$device'",
 			"filename": "'$filename'",
 			"download": "'$download'",
@@ -100,14 +78,9 @@ if [ -f $existingOTAjson ]; then
 			"buildtype": "'$buildtype'",
 			"forum": "'$forum'",
 			"firmware": "'$firmware'",
-			"modem": "'$modem'",
-			"bootloader": "'$bootloader'",
 			"recovery": "'$recovery'",
 			"paypal": "'$paypal'",
 			"telegram": "'$telegram'",
-			"dt": "'$dt'",
-			"common-dt": "'$common'",
-			"kernel": "'$kernel'"
 		}
 	]
 }' >> $output
