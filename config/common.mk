@@ -234,6 +234,10 @@ endif
 PRODUCT_PACKAGES += \
     RepainterServicePriv
 
+# Extra packages
+PRODUCT_PACKAGES += \
+    GameSpace \
+
 # Audio
 $(call inherit-product, vendor/aosp/config/audio.mk)
 
