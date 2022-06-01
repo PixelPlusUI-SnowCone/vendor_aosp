@@ -120,7 +120,8 @@ PRODUCT_PACKAGES += \
     FontSonySketchSourceOverlay \
     FontStoropiaSourceOverlay \
     FontSurferSourceOverlay \
-    FontUbuntuSourceOverlay
+    FontUbuntuSourceOverlay \
+	 FontOppoSansOverlay
 
 
 PRODUCT_COPY_FILES += \
