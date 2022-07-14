@@ -240,6 +240,8 @@ PRODUCT_PACKAGES += \
     GameSpace \
 
 # UI Blur Support
+TARGET_ENABLE_BLUR ?= true
+
 ifeq ($(TARGET_ENABLE_BLUR), true)
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     ro.sf.blurs_are_expensive=1 \
