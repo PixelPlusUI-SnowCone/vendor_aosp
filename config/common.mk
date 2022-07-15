@@ -213,6 +213,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.iorapd.enable=true
 
+# Netword Stack
+PRODUCT_PACKAGES += \
+    NetworkStackOverlay
+
 # Pixel customization
 TARGET_SUPPORTS_GOOGLE_RECORDER ?= true
 TARGET_INCLUDE_STOCK_ARCORE ?= true
