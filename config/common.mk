@@ -276,4 +276,11 @@ $(call inherit-product, vendor/aosp/config/themes.mk)
 # RRO Overlays
 $(call inherit-product, vendor/aosp/config/rro_overlays.mk)
 
+# PixelLauncher MOD
+PIXEL_LAUNCHER_MOD ?= false
+
+ifeq ($(PIXEL_LAUNCHER_MOD),true)
+$(call inherit-product, vendor/PixelLauncher/PixelLauncher.mk)
+endif
+
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
