@@ -26,4 +26,6 @@ ADDITIONAL_SYSTEM_PROPERTIES  += \
     org.pixelplusui.build_date_utc=$(CUSTOM_BUILD_DATE_UTC) \
     org.pixelplusui.build_type=$(CUSTOM_BUILD_TYPE) \
     org.pixelplusui.codename=$(PPUI_CODENAME) \
-    ro.pixelplusui.maintainer=$(PPUI_MAINTAINER)
+    ro.pixelplusui.maintainer=$(PPUI_MAINTAINER) \
+    ro.pixelplusui.settings.android_version=$(PIXELPLUSUI_PLATFORM_RELEASE_OR_CODENAME)
+
