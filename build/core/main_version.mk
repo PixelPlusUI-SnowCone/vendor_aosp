@@ -18,6 +18,9 @@ ADDITIONAL_SYSTEM_PROPERTIES  += \
     persist.sys.recovery_update=true
 endif
 
+# Custom security patch
+CUSTOM_SECURITY_PATCH := 2022-08-05
+
 # Versioning props
 ADDITIONAL_SYSTEM_PROPERTIES  += \
     org.pixelplusui.version=$(PPUI_BASE_VERSION) \
@@ -27,5 +30,6 @@ ADDITIONAL_SYSTEM_PROPERTIES  += \
     org.pixelplusui.build_type=$(CUSTOM_BUILD_TYPE) \
     org.pixelplusui.codename=$(PPUI_CODENAME) \
     ro.pixelplusui.maintainer=$(PPUI_MAINTAINER) \
-    ro.pixelplusui.settings.android_version=$(PIXELPLUSUI_PLATFORM_RELEASE_OR_CODENAME)
+    ro.pixelplusui.settings.android_version=$(PIXELPLUSUI_PLATFORM_RELEASE_OR_CODENAME) \
+    ro.pixelplusui.build_security_patch=$(CUSTOM_SECURITY_PATCH)
 
