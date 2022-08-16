@@ -107,7 +107,8 @@ if [ -f $existingOTAjson ]; then
 			"telegram": "'$telegram'",
 			"dt": "'$dt'",
 			"common-dt": "'$common'",
-			"kernel": "'$kernel'"
+			"kernel": "'$kernel'",
+			"is_active": true
 		}
 	]
 }' >> $output
